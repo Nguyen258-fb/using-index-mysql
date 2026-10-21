@@ -1,14 +1,8 @@
-SET foreign_key_checks = 0;
-
-SET foreign_key_checks = 0;
-
 /*
-Name: MySQL Sample Database classicmodels
-Link: http://www.mysqltutorial.org/mysql-sample-database.aspx
+  Name: MySQL Sample Database classicmodels
+  Link: http://www.mysqltutorial.org/mysql-sample-database.aspx
 */
 
-CREATE DATABASE IF NOT EXISTS classicmodels;
-USE classicmodels;
 
 /* Create the database */
 CREATE DATABASE  IF NOT EXISTS classicmodels;
