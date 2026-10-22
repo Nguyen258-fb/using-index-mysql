@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo bố cục responsive bằng CSS Grid</title>
+    <style>
+        /* Thiết lập chung */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Định nghĩa bố cục CSS Grid cho Desktop (Mặc định) */
+        .grid-container {
+            display: grid;
+            grid-template-areas: 
+                "header header"
+                "nav nav"
+                "main sidebar"
+                "footer footer";
+            grid-template-columns: 3fr 1fr; /* Nội dung chính chiếm 3 phần, Sidebar chiếm 1 phần */
+            grid-template-rows: auto auto 1fr auto;
+            min-height: 100vh;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Các thành phần chính */
+        header {
+            grid-area: header;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: #34495e;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+
+        main {
+            grid-area: main;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        aside {
+            grid-area: sidebar;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Yêu cầu Responsive: Trên màn hình Mobile (nhỏ hơn hoặc bằng 768px) */
+        @media screen and (max-width: 768px) {
+            .grid-container {
+                grid-template-areas: 
+                    "header"
+                    "nav"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr; /* Chuyển thành dạng 1 cột dọc gọn gàng */
+            }
+
+            nav ul {
+                flex-direction: column; /* Menu chuyển thành dạng dọc trên điện thoại */
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- Header -->
+        <header>
+            <h1>Chào mừng đến với trang web của tôi</h1>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Dịch vụ</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <h2>Nội dung chính</h2>
+            <p>Đây là khu vực hiển thị nội dung chính của trang web. Bố cục này sử dụng CSS Grid kết hợp với các vùng (grid-template-areas) để sắp xếp các thành phần một cách khoa học và dễ quản lý.</p>
+            <p>Khi xem trên màn hình máy tính (Desktop), giao diện sẽ chia thành nhiều cột. Khi thu nhỏ màn hình hoặc xem trên thiết bị di động (Mobile), bố cục sẽ tự động co giãn và xếp dọc xuống để người dùng dễ đọc.</p>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <h3>Nội dung phụ / Sidebar</h3>
+            <p>Tin tức mới nhất, quảng cáo hoặc các liên kết phụ sẽ được hiển thị ở khu vực này.</p>
+        </aside>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Bản quyền thuộc về bạn. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
