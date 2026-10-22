@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành flex-grow trong CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Thiết lập Flex Container với 5 div bên trong */
+        .flex-container {
+            display: flex;
+            background-color: #f1f1f1;
+            padding: 10px;
+            gap: 10px; /* Khoảng cách giữa các item */
+            border: 2px solid #ccc;
+        }
+
+        /* Định dạng chung cho cả 5 Flex Item */
+        .flex-container div {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            /* Mặc định flex-grow là 0, các item sẽ có kích thước bằng nhau dựa theo nội dung */
+            flex-grow: 0; 
+        }
+
+        /* Áp dụng flex-grow cho item thứ 2 để nó chiếm nhiều không gian hơn các item còn lại */
+        .item-2 {
+            background-color: #e74c3c !important; /* Đổi màu để dễ nhận biết */
+            flex-grow: 2; /* Phần tử này sẽ phát triển gấp đôi khoảng trống thừa so với các item khác */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Thực hành thuộc tính flex-grow với 5 Flex Item</h2>
+    <p>Trong ví dụ này, <strong>Item 2 (màu đỏ)</strong> được thiết lập <code>flex-grow: 2</code>, do đó nó sẽ tự động phóng to để chiếm phần không gian trống còn lại trong vùng chứa nhiều hơn các item khác.</p>
+
+    <div class="flex-container">
+        <div>Item 1</div>
+        <div class="item-2">Item 2 (flex-grow: 2)</div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+        <div>Item 5</div>
+    </div>
+
+</body>
+</html>
